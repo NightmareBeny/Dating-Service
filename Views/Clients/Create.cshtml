@@ -1,0 +1,112 @@
+﻿@model DatingService.Models.Client
+
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<h4>Регистрация нового пользователя</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Login" class="control-label" for=""></label>
+                <input asp-for="Login" class="form-control" />
+                @if (ViewBag.Login)
+                {
+                    <span class="text-danger error">Извините, но клиент с таким логином уже существует</span>
+                }
+                else
+                {
+                    <span asp-validation-for="Login" class="text-danger"></span>
+                }
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label" for=""></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FIO" class="control-label" for=""></label>
+                <input asp-for="FIO" class="form-control" />
+                <span asp-validation-for="FIO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sign" class="control-label" for=""></label>
+                <select asp-for="Sign" asp-items="ViewBag.Sign"></select>
+                <span asp-validation-for="Sign" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label" for=""></label> <br />
+                <label><input asp-for="Gender" type="radio" value="М" />Мужчина</label> <br />
+                <label><input asp-for="Gender" type="radio" value="Ж" />Женщина</label> <br />
+                @if (ViewBag.Gender)
+                {
+                    <span class="text-danger error">Укажите свой пол</span>
+                }
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label" for=""></label>
+                <input type="file" name="uploadedFile" />
+                @if (ViewBag.Img)
+                {
+                    <span class="text-danger error">Загрузите вашу фотографию</span>
+                }
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthday" class="control-label" for=""></label>
+                <input asp-for="Birthday" class="form-control" />
+                <span asp-validation-for="Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adress" class="control-label" for=""></label>
+                <input asp-for="Adress" class="form-control" />
+                <span asp-validation-for="Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contacts" class="control-label" for=""></label>
+                <textarea asp-for="Contacts" class="form-control"></textarea>
+                <span asp-validation-for="Contacts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Education" class="control-label" for=""></label>
+                <input asp-for="Education" class="form-control" />
+                <span asp-validation-for="Education" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Height" class="control-label" for=""></label>
+                <input asp-for="Height" class="form-control" />
+                <span asp-validation-for="Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label" for=""></label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Children" class="control-label" for=""></label> <br />
+                <label><input asp-for="Children" type="radio" value="true" />Да</label> <br />
+                <label><input asp-for="Children" type="radio" value="false" />Нет</label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Interests" class="control-label" for=""></label>
+                <textarea asp-for="Interests" class="form-control"></textarea>
+                <span asp-validation-for="Interests" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note" class="control-label" for=""></label>
+                <textarea asp-for="Note" class="form-control"></textarea>
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Зарегистрироваться" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="LogIn" asp-controller="Home" class="btn btn-primary">Отменить регистрацию</a>
+</div>
+

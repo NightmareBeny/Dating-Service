@@ -1,0 +1,94 @@
+﻿@model DatingService.Models.Client
+
+@{
+    ViewData["Title"] = "Редактирование";
+}
+
+
+<h4>Редактирование профиля</h4>
+<hr />
+<div class="row">
+    <div class="col-md-3">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Login" />
+            <input type="hidden" asp-for="Password" />
+            <div class="form-group">
+                Ваша текущая фотография
+                <img src="~/Images/@Model.Image" alt="Фото профиля" class="beta" />
+                <input type="hidden" asp-for="Image" />
+                <input type="file" name="uploadedFile" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sign" class="control-label" for=""></label>
+                <select asp-for="Sign" asp-items="ViewBag.Sign"></select>
+                <span asp-validation-for="Sign" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FIO" class="control-label"></label>
+                <input asp-for="FIO" class="form-control" />
+                <span asp-validation-for="FIO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label" for=""></label> <br />
+                <label><input asp-for="Gender" type="radio" value="М" />Мужчина</label> <br />
+                <label><input asp-for="Gender" type="radio" value="Ж" />Женщина</label> <br />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthday" class="control-label"></label>
+                <input asp-for="Birthday" class="form-control" />
+                <span asp-validation-for="Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adress" class="control-label"></label>
+                <input asp-for="Adress" class="form-control" />
+                <span asp-validation-for="Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contacts" class="control-label"></label>
+                <textarea asp-for="Contacts" class="form-control"></textarea>
+                <span asp-validation-for="Contacts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Education" class="control-label"></label>
+                <input asp-for="Education" class="form-control" />
+                <span asp-validation-for="Education" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Height" class="control-label"></label>
+                <input asp-for="Height" class="form-control" />
+                <span asp-validation-for="Height" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label"></label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Children" class="control-label" for=""></label> <br />
+                <label><input asp-for="Children" type="radio" value="true" />Да</label> <br />
+                <label><input asp-for="Children" type="radio" value="false" />Нет</label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Interests" class="control-label"></label>
+                <textarea asp-for="Interests" class="form-control"></textarea>
+                <span asp-validation-for="Interests" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note" class="control-label"></label>
+                <textarea asp-for="Note" class="form-control"></textarea>
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить изменения" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Profile" asp-route-id="@Model.Login" class="btn btn-primary">Отменить изменения</a>
+</div>
+

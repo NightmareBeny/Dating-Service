@@ -1,0 +1,178 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.down{
+    border-bottom:1px solid black
+}
+
+.button {
+    display: block
+}
+
+.gender {
+    display: flex;
+    flex-flow: column;
+}
+
+.gender label{
+    display:flex;
+}
+
+.button-like:hover {
+    transition-duration: 0.3s;
+    background-color: rgb(247, 72, 72)
+}
+
+.button-like:active {
+    box-shadow: 0px 0px 30px rgb(115, 32, 32);
+}
+
+.details-btn {
+    margin: 1% 0% 0% 1%;
+    display:inline-flex;
+    flex-direction:column;
+}
+
+.height{
+    margin-top:1%
+}
+
+.list .down{
+    height:180px;
+}
+
+.list{
+    margin-right:0;
+    width:100%;
+    float:none;
+    text-align:center;
+    table-layout:fixed;
+}
+
+table img{
+    width:100px;
+    margin-right:15px;
+}
+
+table {
+    width: 50%;
+    float: right;
+    margin-right: 29%;
+}
+
+[type=file]:hover{
+    cursor:pointer
+}
+
+img{
+    width:20%
+}
+
+.beta{
+    width:50%;
+    display:block;
+    margin-bottom:10px
+}
+
+.right {
+    border-right: 1px solid black;
+    font-weight: bold;
+    width: 25%;
+    padding: 5px 15px 5px 10px;
+}
+
+.left{
+    padding-left:15px
+}
+
+.logIn {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 7px;
+}
+
+.logIn:hover {
+    transition-duration: 0.3s;
+    background-color: aliceblue
+}
+
+.logIn:active{
+    box-shadow:inset 1px 1px 30px darkgray;
+}
+
+.error{
+    color:red; 
+    font-style:italic; 
+    font-weight:600; 
+    display:block;
+}
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+  margin-bottom:5px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}

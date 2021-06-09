@@ -1,0 +1,73 @@
+﻿@model DatingService.Models.Employee
+
+@{
+    ViewData["Title"] = "Редактирование";
+}
+
+
+<h4>Редактирование профиля</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Login" />
+            <input type="hidden" asp-for="Password" />
+            <input type="hidden" asp-for="Post" />
+            <div class="form-group">
+                <label asp-for="FIO" class="control-label" for=""></label>
+                <input asp-for="FIO" class="form-control" />
+                <span asp-validation-for="FIO" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label" for=""></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Birthday" class="control-label" for=""></label>
+                <input asp-for="Birthday" class="form-control" />
+                <span asp-validation-for="Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label" for=""></label> <br />
+                <label><input asp-for="Gender" type="radio" value="М" />Мужчина</label> <br />
+                <label><input asp-for="Gender" type="radio" value="Ж" />Женщина</label> <br />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Passportseries" class="control-label" for=""></label>
+                <input asp-for="Passportseries" class="form-control" />
+                <span asp-validation-for="Passportseries" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Passportnumber" class="control-label" for=""></label>
+                <input asp-for="Passportnumber" class="form-control" />
+                <span asp-validation-for="Passportnumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adress" class="control-label" for=""></label>
+                <input asp-for="Adress" class="form-control" />
+                <span asp-validation-for="Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telephon" class="control-label" for=""></label>
+                <input asp-for="Telephon" class="form-control" />
+                <span asp-validation-for="Telephon" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note" class="control-label" for=""></label>
+                <textarea asp-for="Note" class="form-control"></textarea>
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить изменения" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Details" asp-route-id="@Model.Login" class="btn btn-primary">Отменить изменения</a>
+</div>
+

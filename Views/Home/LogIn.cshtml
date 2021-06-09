@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Вход в личный кабинет";
+}
+
+<div style="margin-top:11%; text-align:center">
+    <h1>Вход</h1>
+    <form asp-action="LogIn">
+        <div>
+            <label style="margin-right:10px; min-width:55px">Логин</label>
+            <input placeholder="Введите свой логин" name="login"/>
+        </div>
+        <div>
+            <label style="margin-right:10px; min-width:55px">Пароль</label>
+            <input placeholder="Введите свой пароль" name="password" type="password"/>
+        </div>
+        <input type="submit" value="Войти" class="btn btn-primary" style="margin-top:5px" />
+    </form>
+    @if (ViewBag.Error)
+    {
+        <span class="error" sstyle="visibility:hidden">Ошибка! Неверно введён логин или пароль. Повторите попытку.</span>
+    }
+    <a asp-controller="Clients" asp-action="Create" class="btn btn-primary">Зарегистрироваться</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

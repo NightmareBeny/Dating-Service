@@ -1,0 +1,89 @@
+﻿@model IEnumerable<DatingService.Models.Client>
+@inject DatingService.Models.Partner Partner
+
+@{
+    ViewData["Title"] = "Список пользователей";
+}
+
+<div class="d-flex">
+    <div>
+        <h1>Возможные партнёры</h1>
+        <hr />
+        <div class="d-flex">
+            <table class="list">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FIO)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Sign)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Age)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Height)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Weight)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Interests)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Note)
+                        </th>
+                        <th></th>
+                        <th width="2%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="down">
+                            <td>
+                                <img src="~/Images/@item.Image" alt="Фото профиля" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FIO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Sign)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Age)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Height)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Weight)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Interests)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Note)
+                            </td>
+                            <td>
+                                <a class="btn btn-primary button button-like" asp-action="Create" asp-controller="Couples" asp-route-idClient="@ViewBag.Id" asp-route-idPartner="@item.Login">Нравится</a>
+                                <a asp-action="Details" asp-route-id="@item.Login" asp-route-idClient="@ViewBag.Id" class="btn btn-primary button">Подробная информация</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="height">
+            <a asp-action="Profile" asp-route-id="@ViewBag.Id" class="btn btn-primary">Вернуться в личный кабинет</a>
+        </div>
+    </div>
+    <div class="col-md-2" style="border-left:10px double gainsboro">
+        @{
+            Partner = ViewBag.Partner;
+            await Html.RenderPartialAsync("Partners/Edit", Partner);
+        }
+    </div>
+</div>

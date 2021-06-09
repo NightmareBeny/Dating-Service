@@ -1,0 +1,80 @@
+﻿@model DatingService.Models.Client
+
+@{
+    ViewData["Title"] = "Личный кабинет";
+}
+
+<h4>Личный кабинет пользователя</h4>
+<hr />
+<div>
+    <img src="~/Images/@Model.Image" alt="Фото профиля" />
+    <table>
+        <tr class="down">
+            <td class="right">@Html.DisplayNameFor(model => model.FIO)</td>
+            <td class="left">@Html.DisplayFor(model => model.FIO)</td>
+        </tr>
+
+        <tr class="down">
+            <td class="right">@Html.DisplayNameFor(model => model.Gender)</td>
+            <td class="left">@Html.DisplayFor(model => model.Gender)</td>
+        </tr>
+
+        <tr class="down">
+            <td class="right">@Html.DisplayNameFor(model => model.Sign)</td>
+            <td class="left">@Html.DisplayFor(model => model.Sign)</td>
+        </tr>
+
+        <tr class="down">
+            <td class="right">@Html.DisplayNameFor(model => model.Birthday)</td>
+            <td class="left">
+                @Html.DisplayFor(model => model.Birthday)
+                (@Html.DisplayFor(model => model.Age))
+            </td>
+        </tr>
+
+        <tr class="down">
+            <td class="right">@Html.DisplayNameFor(model => model.Adress)</td>
+            <td class="left">@Html.DisplayFor(model => model.Adress)</td>
+        </tr>
+
+        <tr class="down">
+            <td class="right">@Html.DisplayNameFor(model => model.Contacts)</td>
+            <td class="left">@Html.DisplayFor(model => model.Contacts)</td>
+        </tr>
+
+        <tr class="down">
+            <td class="right">@Html.DisplayNameFor(model => model.Education)</td>
+            <td class="left">@Html.DisplayFor(model => model.Education)</td>
+        </tr>
+
+        <tr class="down">
+            <td class="right">@Html.DisplayNameFor(model => model.Height)</td>
+            <td class="left">@Html.DisplayFor(model => model.Height)</td>
+        </tr>
+
+        <tr class="down">
+            <td class="right">@Html.DisplayNameFor(model => model.Weight)</td>
+            <td class="left">@Html.DisplayFor(model => model.Weight)</td>
+        </tr>
+
+        <tr class="down">
+            <td class="right">Есть дети</td>
+            <td class="left">@ViewBag.Children</td>
+        </tr>
+
+        <tr class="down">
+            <td class="right">@Html.DisplayNameFor(model => model.Interests)</td>
+            <td class="left">@Html.DisplayFor(model => model.Interests)</td>
+        </tr>
+
+        <tr>
+            <td class="right">@Html.DisplayNameFor(model => model.Note)</td>
+            <td class="left">@Html.DisplayFor(model => model.Note)</td>
+        </tr>
+    </table>
+</div>
+<div class="details-btn">
+    <a asp-action="Edit" asp-route-id="@Model.Login" class="btn btn-primary">Редактировать профиль</a>
+    <a asp-action="Index" asp-route-id="@Model.Login" class="btn btn-primary">Поиск</a>
+    <a asp-action="Index" asp-controller="Couples" asp-route-id="@Model.Login" class="btn btn-primary">Люди, заинтересованные мной</a>
+</div>
